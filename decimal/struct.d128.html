@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `d128` struct in crate `decimal`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, d128">
+
+    <title>decimal::d128 - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='index.html'>decimal</a></p><script>window.sidebarCurrent = {name: 'd128', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content struct">
+<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>decimal</a>::<wbr><a class='struct' href=''>d128</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-109' class='srclink' href='../src/decimal/dec128.rs.html#22-24' title='goto source code'>[src]</a></span></h1>
+<pre class='rust struct'>pub struct d128 {
+    // some fields omitted
+}</pre><div class='docblock'><p>A 128-bit decimal floating point type.</p>
+</div><h2 id='methods'>Methods</h2><h3 class='impl'><code>impl <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='method.get_status' class='method'><code>fn <a href='#method.get_status' class='fnname'>get_status</a>() -&gt; <a class='struct' href='../decimal/struct.Status.html' title='decimal::Status'>Status</a></code></h4>
+<div class='docblock'><p>Returns the thread local status.</p>
+</div><h4 id='method.set_status' class='method'><code>fn <a href='#method.set_status' class='fnname'>set_status</a>(status: <a class='struct' href='../decimal/struct.Status.html' title='decimal::Status'>Status</a>)</code></h4>
+<div class='docblock'><p>Sets the thread local status.</p>
+</div><h4 id='method.from_hex' class='method'><code>fn <a href='#method.from_hex' class='fnname'>from_hex</a>(s: &amp;<a href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<div class='docblock'><p>Reads the hex binary representation from a string. This is the reverse of formatting with
+{:x}.</p>
+</div><h4 id='method.zero' class='method'><code>fn <a href='#method.zero' class='fnname'>zero</a>() -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<div class='docblock'><p>Returns the d128 representing +0.</p>
+</div><h4 id='method.abs' class='method'><code>fn <a href='#method.abs' class='fnname'>abs</a>(self) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<div class='docblock'><p>Returns the absolute value of <code>self</code>.</p>
+</div><h4 id='method.mul_add' class='method'><code>fn <a href='#method.mul_add' class='fnname'>mul_add</a>&lt;O: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt;&gt;(self, a: O, b: O) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<div class='docblock'><p>Calculates the fused multiply-add <code>self</code> × <code>a</code> + <code>b</code> and returns the result. The multiply
+is carried out first and is exact, so this operation has only the one, final, rounding.</p>
+</div><h4 id='method.logb' class='method'><code>fn <a href='#method.logb' class='fnname'>logb</a>(self) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<div class='docblock'><p>Returns the adjusted exponent of <code>self</code>, according to IEEE 754 rules. That is, the exponent
+returned is calculated as if the decimal point followed the first significant digit (so,
+for example, if <code>self</code> were 123 then the result would be 2). If <code>self</code> is infinite, the
+result is +Infinity. If <code>self</code> is a zero, the result is –Infinity, and the
+<code>DIVISION_BY_ZERO</code> flag is set. If <code>self</code> is less than zero, the absolute value of <code>self</code>
+is used. If <code>self</code> is 1, the result is 0. NaNs are handled (propagated) as for arithmetic
+operations.</p>
+</div><h4 id='method.max' class='method'><code>fn <a href='#method.max' class='fnname'>max</a>&lt;O: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt;&gt;(self, other: O) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<div class='docblock'><p>If both <code>self</code> and <code>other</code> are numeric (not NaNs) this returns the larger of the two
+(compared using total ordering, to give a well-defined result). If either (but not both of)
+is a quiet NaN then the other argument is the result; otherwise NaNs are handled as for
+arithmetic operations.</p>
+</div><h4 id='method.min' class='method'><code>fn <a href='#method.min' class='fnname'>min</a>&lt;O: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt;&gt;(self, other: O) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<div class='docblock'><p>If both <code>self</code> and <code>other</code>  are numeric (not NaNs) this returns the smaller of the two
+(compared using total ordering, to give a well-defined result). If either (but not both of)
+is a quiet NaN then the other argument is the result; otherwise NaNs are handled as for
+arithmetic operations.</p>
+</div><h4 id='method.next' class='method'><code>fn <a href='#method.next' class='fnname'>next</a>(self) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<div class='docblock'><p>Returns the ‘next’ d128 to <code>self</code> in the direction of +Infinity according to IEEE 754 rules
+for nextUp. The only status possible is <code>INVALID_OPERATION</code> (from an sNaN).</p>
+</div><h4 id='method.previous' class='method'><code>fn <a href='#method.previous' class='fnname'>previous</a>(self) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<div class='docblock'><p>Returns the ‘next’ d128 to <code>self</code> in the direction of –Infinity according to IEEE 754 rules
+for nextDown. The only status possible is <code>INVALID_OPERATION</code> (from an sNaN).</p>
+</div><h4 id='method.towards' class='method'><code>fn <a href='#method.towards' class='fnname'>towards</a>&lt;O: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt;&gt;(self, other: O) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<div class='docblock'><p>Returns the ‘next’ d128 to <code>self</code> in the direction of <code>other</code> according to proposed IEEE
+754  rules for nextAfter.  If <code>self</code> == <code>other</code> the result is <code>self</code>. If either operand is
+a NaN the result is as for arithmetic operations. Otherwise (the operands are numeric and
+different) the result of adding (or subtracting) an infinitesimal positive amount to <code>self</code>
+and rounding towards +Infinity (or –Infinity) is returned, depending on whether <code>other</code> is
+larger  (or smaller) than <code>self</code>. The addition will set flags, except that if the result is
+normal  (finite, non-zero, and not subnormal) no flags are set.</p>
+</div><h4 id='method.quantize' class='method'><code>fn <a href='#method.quantize' class='fnname'>quantize</a>&lt;O: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt;&gt;(self, other: O) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<div class='docblock'><p>Returns <code>self</code> set to have the same quantum as <code>other</code>, if possible (that is, numerically
+the same value but rounded or padded if necessary to have the same exponent as <code>other</code>, for
+example to round a monetary quantity to cents).</p>
+</div><h4 id='method.reduce' class='method'><code>fn <a href='#method.reduce' class='fnname'>reduce</a>(self) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<div class='docblock'><p>Returns a copy of <code>self</code> with its coefficient reduced to its shortest possible form without
+changing the value of the result. This removes all possible trailing zeros from the
+coefficient (some may remain when the number is very close to the most positive or most
+negative number). Infinities and NaNs are unchanged and no status is set unless <code>self</code> is
+an sNaN. If <code>self</code> is a zero the result exponent is 0.</p>
+</div><h4 id='method.rotate' class='method'><code>fn <a href='#method.rotate' class='fnname'>rotate</a>&lt;O: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt;&gt;(self, amount: O) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<div class='docblock'><p>The result is a copy of <code>self</code> with the digits of the coefficient rotated to the left (if
+<code>amount</code> is positive) or to the right (if <code>amount</code> is negative) without adjusting the
+exponent or the sign of <code>self</code>. <code>amount</code> is the count of positions to rotate and must be a
+finite integer (with exponent=0) in the range -34 through +34. NaNs are propagated as
+usual. If <code>self</code> is infinite the result is Infinity of the same sign. No status is set
+unless <code>amount</code> is invalid or an operand is an sNaN.</p>
+</div><h4 id='method.scaleb' class='method'><code>fn <a href='#method.scaleb' class='fnname'>scaleb</a>&lt;O: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt;&gt;(self, other: O) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<div class='docblock'><p>This calculates <code>self</code> × 10<sup><code>other</code></sup> and returns the result. <code>other</code> must be an
+integer (finite with exponent=0) in the range ±2 × (34 + 6144), typically resulting from
+<code>logb</code>. Underflow and overflow might occur. NaNs propagate as usual.</p>
+</div><h4 id='method.compare' class='method'><code>fn <a href='#method.compare' class='fnname'>compare</a>&lt;O: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt;&gt;(&amp;self, other: O) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<div class='docblock'><p>Compares <code>self</code> and <code>other</code> numerically and returns the result. The result may be –1, 0, 1,
+or NaN (unordered); –1 indicates that <code>self</code> is less than <code>other</code>, 0 indicates that they
+are numerically equal, and 1 indicates that <code>self</code> is greater than <code>other</code>. NaN is returned
+only if <code>self</code> or <code>other</code> is a NaN.</p>
+</div><h4 id='method.compare_total' class='method'><code>fn <a href='#method.compare_total' class='fnname'>compare_total</a>&lt;O: <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt;&gt;(&amp;self, other: O) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<div class='docblock'><p>Compares <code>self</code> and <code>other</code> using the IEEE 754 total ordering (which takes into account the
+exponent) and returns the result. No status is set (a signaling NaN is ordered between
+Infinity and NaN). The result will be –1, 0, or 1.</p>
+</div><h4 id='method.canonical' class='method'><code>fn <a href='#method.canonical' class='fnname'>canonical</a>(self) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<div class='docblock'><p>Returns <code>self</code> ensuring that the encoding is canonical.</p>
+</div><h4 id='method.class' class='method'><code>fn <a href='#method.class' class='fnname'>class</a>(&amp;self) -&gt; <a class='enum' href='../decimal/enum.Class.html' title='decimal::Class'>Class</a></code></h4>
+<div class='docblock'><p>Returns the class of <code>self</code>.</p>
+</div><h4 id='method.classify' class='method'><code>fn <a href='#method.classify' class='fnname'>classify</a>(&amp;self) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/num/enum.FpCategory.html' title='core::num::FpCategory'>FpCategory</a></code></h4>
+<div class='docblock'><p>Same as <code>class()</code> but returns <code>std::num::FpCategory</code>.</p>
+</div><h4 id='method.digits' class='method'><code>fn <a href='#method.digits' class='fnname'>digits</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a></code></h4>
+<div class='docblock'><p>Returns the number of significant digits in <code>self</code>. If <code>self</code> is a zero or is infinite, 1
+is returned. If <code>self</code> is a NaN then the number of digits in the payload is returned.</p>
+</div><h4 id='method.is_canonical' class='method'><code>fn <a href='#method.is_canonical' class='fnname'>is_canonical</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns <code>true</code> if the encoding of <code>self</code> is canonical, or <code>false</code> otherwise.</p>
+</div><h4 id='method.is_finite' class='method'><code>fn <a href='#method.is_finite' class='fnname'>is_finite</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns <code>true</code> if <code>self</code> is neither infinite nor a NaN, or <code>false</code> otherwise.</p>
+</div><h4 id='method.is_integer' class='method'><code>fn <a href='#method.is_integer' class='fnname'>is_integer</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns <code>true</code> if <code>self</code> is finite and its exponent is zero, or <code>false</code> otherwise.</p>
+</div><h4 id='method.is_logical' class='method'><code>fn <a href='#method.is_logical' class='fnname'>is_logical</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns <code>true</code> if <code>self</code>  is a valid argument for logical operations (that is, <code>self</code> is
+zero or positive, an integer (finite with a zero exponent) and comprises only zeros and/or
+ones), or <code>false</code> otherwise.</p>
+</div><h4 id='method.is_infinite' class='method'><code>fn <a href='#method.is_infinite' class='fnname'>is_infinite</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns <code>true</code> if the encoding of <code>self</code> is an infinity, or <code>false</code> otherwise.</p>
+</div><h4 id='method.is_nan' class='method'><code>fn <a href='#method.is_nan' class='fnname'>is_nan</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a NaN (quiet or signaling), or <code>false</code> otherwise.</p>
+</div><h4 id='method.is_negative' class='method'><code>fn <a href='#method.is_negative' class='fnname'>is_negative</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns <code>true</code> if <code>self</code> is less than zero and not a NaN, or <code>false</code> otherwise.</p>
+</div><h4 id='method.is_normal' class='method'><code>fn <a href='#method.is_normal' class='fnname'>is_normal</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a normal number (that is, is finite, non-zero, and not
+subnormal), or <code>false</code> otherwise.</p>
+</div><h4 id='method.is_positive' class='method'><code>fn <a href='#method.is_positive' class='fnname'>is_positive</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns <code>true</code> if <code>self</code> is greater than zero and not a NaN, or <code>false</code> otherwise.</p>
+</div><h4 id='method.is_signaling' class='method'><code>fn <a href='#method.is_signaling' class='fnname'>is_signaling</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns <code>true</code> if <code>self</code> is a signaling NaN, or <code>false</code> otherwise.</p>
+</div><h4 id='method.is_signed' class='method'><code>fn <a href='#method.is_signed' class='fnname'>is_signed</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns <code>true</code> if <code>self</code> has a minus sign, or <code>false</code> otherwise. Note that zeros and NaNs
+may have a minus sign.</p>
+</div><h4 id='method.is_subnormal' class='method'><code>fn <a href='#method.is_subnormal' class='fnname'>is_subnormal</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns <code>true</code> if <code>self</code> is subnormal (that is, finite, non-zero, and with magnitude less
+than 10<sup>-6143</sup>), or <code>false</code> otherwise.</p>
+</div><h4 id='method.is_zero' class='method'><code>fn <a href='#method.is_zero' class='fnname'>is_zero</a>(&amp;self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<div class='docblock'><p>Returns <code>true</code> if <code>self</code> is zero, or <code>false</code> otherwise.</p>
+</div></div><h2 id='implementations'>Trait Implementations</h2><h3 class='impl'><code>impl <a class='trait' href='../rustc_serialize/serialize/trait.Decodable.html' title='rustc_serialize::serialize::Decodable'>Decodable</a> for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='method.decode' class='method'><code>fn <a href='../rustc_serialize/serialize/trait.Decodable.html#method.decode' class='fnname'>decode</a>&lt;D: <a class='trait' href='../rustc_serialize/serialize/trait.Decoder.html' title='rustc_serialize::serialize::Decoder'>Decoder</a>&gt;(d: &amp;mut D) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Self, D::Error&gt;</code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='../rustc_serialize/serialize/trait.Encodable.html' title='rustc_serialize::serialize::Encodable'>Encodable</a> for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='method.encode' class='method'><code>fn <a href='../rustc_serialize/serialize/trait.Encodable.html#method.encode' class='fnname'>encode</a>&lt;E: <a class='trait' href='../rustc_serialize/serialize/trait.Encoder.html' title='rustc_serialize::serialize::Encoder'>Encoder</a>&gt;(&amp;self, e: &amp;mut E) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>, E::Error&gt;</code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html' title='core::convert::From'>From</a>&lt;<a href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='docblock'><p>Converts an i32 to d128. The result is exact and no error is possible.</p>
+</div><div class='impl-items'><h4 id='method.from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#method.from' class='fnname'>from</a>(val: <a href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html' title='core::convert::From'>From</a>&lt;<a href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='docblock'><p>Converts an u32 to d128. The result is exact and no error is possible.</p>
+</div><div class='impl-items'><h4 id='method.from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.From.html#method.from' class='fnname'>from</a>(val: <a href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html' title='core::convert::AsRef'>AsRef</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='method.as_ref' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.AsRef.html#method.as_ref' class='fnname'>as_ref</a>(&amp;self) -&gt; &amp;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/str/trait.FromStr.html' title='core::str::FromStr'>FromStr</a> for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='docblock'><p>Converts a string to d128. The length of the coefficient and the size of the exponent are
+checked by this routine, so rounding will be applied if necessary, and this may set status
+flags (<code>UNDERFLOW</code>, <code>OVERFLOW</code>) will be reported, or rounding applied, as necessary. There is
+no limit to the coefficient length for finite inputs; NaN payloads must be integers with no
+more than 33 digits. Exponents may have up to nine significant digits. The syntax of the string
+is fully checked; if it is not valid, the result will be a quiet NaN and an error flag will be
+set.</p>
+</div><div class='impl-items'><h4 id='assoc_type.Err' class='type'><code>type Err = <a href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a></code></h4>
+<h4 id='method.from_str' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/str/trait.FromStr.html#method.from_str' class='fnname'>from_str</a>(s: &amp;<a href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;Self, <a href='https://doc.rust-lang.org/nightly/std/primitive.tuple.html'>()</a>&gt;</code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;<a href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='docblock'><p>Converts this d128 to an i32. It uses Rounding::HalfEven.</p>
+</div><div class='impl-items'><h4 id='method.into' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#method.into' class='fnname'>into</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.i32.html'>i32</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html' title='core::convert::Into'>Into</a>&lt;<a href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='docblock'><p>Converts this d128 to an u32. It uses Rounding::HalfEven.</p>
+</div><div class='impl-items'><h4 id='method.into' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/convert/trait.Into.html#method.into' class='fnname'>into</a>(self) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.u32.html'>u32</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html' title='core::fmt::Display'>Display</a> for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='docblock'><p>Formats a d128. Finite numbers will be converted to a string with exponential notation if the
+exponent is positive or if the magnitude of x is less than 1 and would require more than five
+zeros between the decimal point and the first significant digit. Note that strings which are
+not simply numbers (one of Infinity, –Infinity, NaN, or sNaN) are possible. A NaN string may
+have a leading – sign and/or following payload digits. No digits follow the NaN string if the
+payload is 0.</p>
+</div><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Display.html#method.fmt' class='fnname'>fmt</a>(&amp;self, fmt: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='docblock'><p>Same as <code>fmt::Display</code>.</p>
+</div><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, fmt: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.LowerExp.html' title='core::fmt::LowerExp'>LowerExp</a> for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='docblock'><p>Formats a d128 with engineering notation. This is the same as fmt::Display except that if
+exponential notation is used the exponent will be a multiple of 3.</p>
+</div><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.LowerExp.html#method.fmt' class='fnname'>fmt</a>(&amp;self, fmt: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/fmt/trait.LowerHex.html' title='core::fmt::LowerHex'>LowerHex</a> for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='docblock'><p>Formats a d128 to hexadecimal binary representation.</p>
+</div><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/fmt/trait.LowerHex.html#method.fmt' class='fnname'>fmt</a>(&amp;self, fmt: &amp;mut <a class='struct' href='https://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='https://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html' title='core::cmp::PartialEq'>PartialEq</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='method.eq' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.eq' class='fnname'>eq</a>(&amp;self, other: &amp;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.ne' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialEq.html#method.ne' class='fnname'>ne</a>(&amp;self, other: &amp;Rhs) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html' title='core::cmp::PartialOrd'>PartialOrd</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='method.partial_cmp' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.partial_cmp' class='fnname'>partial_cmp</a>(&amp;self, other: &amp;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='enum' href='https://doc.rust-lang.org/nightly/core/cmp/enum.Ordering.html' title='core::cmp::Ordering'>Ordering</a>&gt;</code></h4>
+<h4 id='method.lt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.lt' class='fnname'>lt</a>(&amp;self, other: &amp;Rhs) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.le' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.le' class='fnname'>le</a>(&amp;self, other: &amp;Rhs) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.gt' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.gt' class='fnname'>gt</a>(&amp;self, other: &amp;Rhs) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+<h4 id='method.ge' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/cmp/trait.PartialOrd.html#method.ge' class='fnname'>ge</a>(&amp;self, other: &amp;Rhs) -&gt; <a href='https://doc.rust-lang.org/nightly/std/primitive.bool.html'>bool</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html' title='core::ops::Add'>Add</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.add' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html#method.add' class='fnname'>add</a>(self, other: <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html' title='core::ops::Add'>Add</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.add' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html#method.add' class='fnname'>add</a>(self, other: <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html' title='core::ops::Add'>Add</a>&lt;&amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.add' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html#method.add' class='fnname'>add</a>(self, other: &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a, 'b&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html' title='core::ops::Add'>Add</a>&lt;&amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for &amp;'b <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.add' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Add.html#method.add' class='fnname'>add</a>(self, other: &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html' title='core::ops::Sub'>Sub</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.sub' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html#method.sub' class='fnname'>sub</a>(self, other: <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html' title='core::ops::Sub'>Sub</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.sub' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html#method.sub' class='fnname'>sub</a>(self, other: <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html' title='core::ops::Sub'>Sub</a>&lt;&amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.sub' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html#method.sub' class='fnname'>sub</a>(self, other: &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a, 'b&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html' title='core::ops::Sub'>Sub</a>&lt;&amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for &amp;'b <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.sub' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Sub.html#method.sub' class='fnname'>sub</a>(self, other: &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html' title='core::ops::Mul'>Mul</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.mul' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html#method.mul' class='fnname'>mul</a>(self, other: <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html' title='core::ops::Mul'>Mul</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.mul' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html#method.mul' class='fnname'>mul</a>(self, other: <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html' title='core::ops::Mul'>Mul</a>&lt;&amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.mul' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html#method.mul' class='fnname'>mul</a>(self, other: &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a, 'b&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html' title='core::ops::Mul'>Mul</a>&lt;&amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for &amp;'b <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.mul' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Mul.html#method.mul' class='fnname'>mul</a>(self, other: &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Div.html' title='core::ops::Div'>Div</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.div' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Div.html#method.div' class='fnname'>div</a>(self, other: <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Div.html' title='core::ops::Div'>Div</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.div' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Div.html#method.div' class='fnname'>div</a>(self, other: <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Div.html' title='core::ops::Div'>Div</a>&lt;&amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.div' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Div.html#method.div' class='fnname'>div</a>(self, other: &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a, 'b&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Div.html' title='core::ops::Div'>Div</a>&lt;&amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for &amp;'b <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.div' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Div.html#method.div' class='fnname'>div</a>(self, other: &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitAnd.html' title='core::ops::BitAnd'>BitAnd</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='docblock'><p>The operands must be zero or positive, an integer (finite with zero exponent) and comprise
+only zeros and/or ones; if not, INVALID_OPERATION is set.</p>
+</div><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.bitand' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitAnd.html#method.bitand' class='fnname'>bitand</a>(self, other: <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitAnd.html' title='core::ops::BitAnd'>BitAnd</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.bitand' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitAnd.html#method.bitand' class='fnname'>bitand</a>(self, other: <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitAnd.html' title='core::ops::BitAnd'>BitAnd</a>&lt;&amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.bitand' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitAnd.html#method.bitand' class='fnname'>bitand</a>(self, other: &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a, 'b&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitAnd.html' title='core::ops::BitAnd'>BitAnd</a>&lt;&amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for &amp;'b <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.bitand' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitAnd.html#method.bitand' class='fnname'>bitand</a>(self, other: &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html' title='core::ops::BitOr'>BitOr</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='docblock'><p>The operands must be zero or positive, an integer (finite with zero exponent) and comprise
+only zeros and/or ones; if not, INVALID_OPERATION is set.</p>
+</div><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.bitor' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html#method.bitor' class='fnname'>bitor</a>(self, other: <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html' title='core::ops::BitOr'>BitOr</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.bitor' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html#method.bitor' class='fnname'>bitor</a>(self, other: <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html' title='core::ops::BitOr'>BitOr</a>&lt;&amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.bitor' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html#method.bitor' class='fnname'>bitor</a>(self, other: &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a, 'b&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html' title='core::ops::BitOr'>BitOr</a>&lt;&amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for &amp;'b <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.bitor' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitOr.html#method.bitor' class='fnname'>bitor</a>(self, other: &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitXor.html' title='core::ops::BitXor'>BitXor</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='docblock'><p>The operands must be zero or positive, an integer (finite with zero exponent) and comprise
+only zeros and/or ones; if not, INVALID_OPERATION is set.</p>
+</div><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.bitxor' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitXor.html#method.bitxor' class='fnname'>bitxor</a>(self, other: <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitXor.html' title='core::ops::BitXor'>BitXor</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.bitxor' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitXor.html#method.bitxor' class='fnname'>bitxor</a>(self, other: <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitXor.html' title='core::ops::BitXor'>BitXor</a>&lt;&amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.bitxor' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitXor.html#method.bitxor' class='fnname'>bitxor</a>(self, other: &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a, 'b&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.BitXor.html' title='core::ops::BitXor'>BitXor</a>&lt;&amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for &amp;'b <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.bitxor' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.BitXor.html#method.bitxor' class='fnname'>bitxor</a>(self, other: &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Rem.html' title='core::ops::Rem'>Rem</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.rem' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Rem.html#method.rem' class='fnname'>rem</a>(self, other: <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Rem.html' title='core::ops::Rem'>Rem</a>&lt;<a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.rem' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Rem.html#method.rem' class='fnname'>rem</a>(self, other: <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Rem.html' title='core::ops::Rem'>Rem</a>&lt;&amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.rem' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Rem.html#method.rem' class='fnname'>rem</a>(self, other: &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a, 'b&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Rem.html' title='core::ops::Rem'>Rem</a>&lt;&amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>&gt; for &amp;'b <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.rem' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Rem.html#method.rem' class='fnname'>rem</a>(self, other: &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Neg.html' title='core::ops::Neg'>Neg</a> for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.neg' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Neg.html#method.neg' class='fnname'>neg</a>(self) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Neg.html' title='core::ops::Neg'>Neg</a> for &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.neg' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Neg.html#method.neg' class='fnname'>neg</a>(self) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Not.html' title='core::ops::Not'>Not</a> for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='docblock'><p>The operand must be zero or positive, an integer (finite with zero exponent) and comprise
+only zeros and/or ones; if not, INVALID_OPERATION is set.</p>
+</div><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.not' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Not.html#method.not' class='fnname'>not</a>(self) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Not.html' title='core::ops::Not'>Not</a> for &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.not' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Not.html#method.not' class='fnname'>not</a>(self) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Shl.html' title='core::ops::Shl'>Shl</a>&lt;<a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='docblock'><p>The result is <code>self</code> with the digits of the coefficient shifted to the left without adjusting
+the exponent or the sign of <code>self</code>. Any digits ‘shifted in’ from the right will be 0. <code>amount</code>
+is the count of positions to shift and must be a in the range –34 through +34. NaNs are
+propagated as usual. If <code>self</code> is infinite the result is Infinity of the same sign. No status
+is set unless <code>amount</code> is invalid or <code>self</code> is an sNaN.</p>
+</div><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.shl' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Shl.html#method.shl' class='fnname'>shl</a>(self, amount: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Shl.html' title='core::ops::Shl'>Shl</a>&lt;<a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt; for &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.shl' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Shl.html#method.shl' class='fnname'>shl</a>(self, amount: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Shr.html' title='core::ops::Shr'>Shr</a>&lt;<a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt; for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='docblock'><p>The result is <code>self</code> with the digits of the coefficient shifted to the right without adjusting
+the exponent or the sign of <code>self</code>. Any digits ‘shifted in’ from the left will be 0. <code>amount</code>
+is the count of positions to shift and must be a in the range –34 through +34. NaNs are
+propagated as usual. If <code>self</code> is infinite the result is Infinity of the same sign. No status
+is set unless <code>amount</code> is invalid or <code>self</code> is an sNaN.</p>
+</div><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.shr' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Shr.html#method.shr' class='fnname'>shr</a>(self, amount: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 class='impl'><code>impl&lt;'a&gt; <a class='trait' href='https://doc.rust-lang.org/nightly/core/ops/trait.Shr.html' title='core::ops::Shr'>Shr</a>&lt;<a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>&gt; for &amp;'a <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='assoc_type.Output' class='type'><code>type Output = <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.shr' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/ops/trait.Shr.html#method.shr' class='fnname'>shr</a>(self, amount: <a href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+</div><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Copy.html' title='core::marker::Copy'>Copy</a> for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'></div><h3 class='impl'><code>impl <a class='trait' href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html' title='core::clone::Clone'>Clone</a> for <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h3><div class='impl-items'><h4 id='method.clone' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone' class='fnname'>clone</a>(&amp;self) -&gt; <a class='struct' href='../decimal/struct.d128.html' title='decimal::d128'>d128</a></code></h4>
+<h4 id='method.clone_from' class='method'><code>fn <a href='https://doc.rust-lang.org/nightly/core/clone/trait.Clone.html#method.clone_from' class='fnname'>clone_from</a>(&amp;mut self, source: &amp;Self)</code></h4>
+</div></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../";
+        window.currentCrate = "decimal";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../jquery.js"></script>
+    <script src="../main.js"></script>
+    
+    <script async src="../search-index.js"></script>
+</body>
+</html>
